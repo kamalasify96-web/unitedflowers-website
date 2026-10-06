@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://kamalasify96-web.github.io/unitedflowers-website/sitemap.xml
