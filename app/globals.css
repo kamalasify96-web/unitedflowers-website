@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grove: #4e7738;
+  --deep: #1e3318;
+  --lime: #b7cf3e;
+  --gold: #f4b334;
+  --amber: #e08a1e;
+  --cream: #fbf7ec;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: #1b2416;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[dir="rtl"] .font-display {
+  font-family: var(--font-alexandria), sans-serif;
+  letter-spacing: 0 !important;
+}
+/* Arabic is a joined script: any letter-spacing breaks the words apart */
+html[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+/* Arabic letterforms need more vertical room than the tight Latin display leading */
+html[dir="rtl"] h1.font-display,
+html[dir="rtl"] h2.font-display {
+  line-height: 1.22 !important;
+}
+/* smaller Arabic headings wrap onto 2–3 lines; give the lines room so they never touch */
+html[dir="rtl"] h3.font-display {
+  line-height: 1.45 !important;
+}
+
+/* Dot grid texture (Al Taimi stats band / Growxcel hero) */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(30, 51, 24, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dot-grid-light {
+  background-image: radial-gradient(circle, rgba(251, 247, 236, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Golden glow behind products (brand book "golden glow") */
+.golden-glow {
+  background: radial-gradient(circle at 50% 50%, #fff6d8 0%, #ffd25e 18%, rgba(244, 179, 52, 0.55) 38%, rgba(244, 179, 52, 0) 66%);
+}
+
+/* Animated gradient border card (Growxcel "difference cards") */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.glow-border {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: rgba(30, 51, 24, 0.12);
+  transition: background 0.3s;
+}
+.glow-border:hover {
+  background: conic-gradient(from var(--angle), #b7cf3e, #f4b334, #e08a1e, #4e7738, #b7cf3e);
+  animation: borderspin 4s linear infinite;
+}
+@keyframes borderspin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Sunflower line pattern, used as a subtle section background */
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .glow-border:hover {
+    animation: none;
+  }
+}

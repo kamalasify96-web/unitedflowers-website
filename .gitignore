@@ -1,0 +1,11 @@
+node_modules
+.next
+.next-export
+out
+*.tsbuildinfo
+.DS_Store
+# large raw working files (kept locally, not needed to build the site)
+hero-src/photoreal-raw.mp4
+hero-src/frames/
+hero-src/*_prev.jpg
+hero-src/mark-frames/*.html
